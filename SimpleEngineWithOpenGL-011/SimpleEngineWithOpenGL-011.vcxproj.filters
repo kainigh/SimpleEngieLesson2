@@ -74,6 +74,9 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="MouseState.cpp" />
+    <ClCompile Include="InputSystem.cpp" />
+    <ClCompile Include="KeyboardState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -152,6 +155,9 @@
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="DirectionalLight.h" />
+    <ClInclude Include="MouseState.h" />
+    <ClInclude Include="InputSystem.h" />
+    <ClInclude Include="KeyboardState.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Components">

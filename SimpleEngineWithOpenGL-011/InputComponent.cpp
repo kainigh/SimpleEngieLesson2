@@ -1,5 +1,6 @@
 #include "InputComponent.h"
 #include <SDL_scancode.h>
+#include "InputSystem.h"
 
 InputComponent::InputComponent(Actor* ownerP) :
 	MoveComponent(ownerP),
@@ -12,57 +13,57 @@ InputComponent::InputComponent(Actor* ownerP) :
 {
 }
 
-void InputComponent::processInput(const Uint8* keyState)
+void InputComponent::processInput(const InputState& inputState)
 {
 	float forwardSpeed = 0.0f;
-	if (keyState[forwardKey])
+	if (inputState.keyboard.getKeyState(forwardKey) == ButtonState::Held)
 	{
 		forwardSpeed += maxForwardSpeed;
 	}
-	if (keyState[backKey])
+	if (inputState.keyboard.getKeyState(backKey) == ButtonState::Held)
 	{
 		forwardSpeed -= maxForwardSpeed;
 	}
 	setForwardSpeed(forwardSpeed);
 
 	float angularSpeed = 0.0f;
-	if (keyState[clockwiseKey])
+	if (inputState.keyboard.getKeyState(clockwiseKey) == ButtonState::Held)
 	{
 		angularSpeed -= maxAngularSpeed;
 	}
-	if (keyState[counterClockwiseKey])
+	if (inputState.keyboard.getKeyState(counterClockwiseKey) == ButtonState::Held)
 	{
 		angularSpeed += maxAngularSpeed;
 	}
 	setAngularSpeed(angularSpeed);
 }
 
-void InputComponent::setMaxForwardSpeed(float maxForwardSpeedP)
-{
-	maxForwardSpeed = maxForwardSpeedP;
-}
+//void InputComponent::setMaxForwardSpeed(float maxForwardSpeedP)
+//{
+//	maxForwardSpeed = maxForwardSpeedP;
+//}
+//
+//void InputComponent::setMaxAngularSpeed(float maxAngularSpeedP)
+//{
+//	maxAngularSpeed = maxAngularSpeedP;
+//}
 
-void InputComponent::setMaxAngularSpeed(float maxAngularSpeedP)
-{
-	maxAngularSpeed = maxAngularSpeedP;
-}
-
-void InputComponent::setForwardKey(int key)
-{
-	forwardKey = key;
-}
-
-void InputComponent::setBackKey(int key)
-{
-	backKey = key;
-}
-
-void InputComponent::setClockwiseKey(int key)
-{
-	clockwiseKey = key;
-}
-
-void InputComponent::setCounterClockwiseKey(int key)
-{
-	counterClockwiseKey = key;
-}
+//void InputComponent::setForwardKey(int key)
+//{
+//	forwardKey = key;
+//}
+//
+//void InputComponent::setBackKey(int key)
+//{
+//	backKey = key;
+//}
+//
+//void InputComponent::setClockwiseKey(int key)
+//{
+//	clockwiseKey = key;
+//}
+//
+//void InputComponent::setCounterClockwiseKey(int key)
+//{
+//	counterClockwiseKey = key;
+//}

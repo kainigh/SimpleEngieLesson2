@@ -12,13 +12,13 @@ bool Window::initialize()
 		Log::error(LogCategory::Video, "Unable to initialize SDL");
 		return false;
 	}
-	SDLWindow = SDL_CreateWindow("Parallaxes", 100, 100, width, height, SDL_WINDOW_OPENGL); // 0 is flag we will use later
+
+	SDLWindow = SDL_CreateWindow("3D Basics", 100, 100, width, height, SDL_WINDOW_OPENGL);
 	if (!SDLWindow)
 	{
 		Log::error(LogCategory::System, "Failed to create window");
 		return false;
 	}
-
 	return true;
 }
 

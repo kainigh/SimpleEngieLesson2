@@ -75,7 +75,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>..\SDL\SDL2-2.0.12\include;..\SDL\SDL2_image-2.0.5\include;..\SDL\SDL2_mixer-2.0.4\include;..\SDL\SDL2_ttf-2.0.15\include;..\SDL\glew-2.1.0\include;..\rapidjson;$(IncludePath)</IncludePath>
+    <IncludePath>..\SDL\SDL2-2.0.12\include;..\SDL\SDL2_image-2.0.5\include;..\SDL\SDL2_mixer-2.0.4\include;..\SDL\SDL2_ttf-2.0.15\include;..\SDL\glew-2.1.0\include;..\rapidjson\include;$(IncludePath)</IncludePath>
     <LibraryPath>..\SDL\SDL2-2.0.12\lib\x64;..\SDL\SDL2_image-2.0.5\lib\x64;..\SDL\SDL2_mixer-2.0.4\lib\x64;..\SDL\SDL2_ttf-2.0.15\lib\x64;..\SDL\glew-2.1.0\lib\Release\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -154,12 +154,15 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="InputSystem.cpp" />
+    <ClCompile Include="KeyboardState.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Maths.cpp" />
     <ClCompile Include="Matrix4.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshComponent.cpp" />
+    <ClCompile Include="MouseState.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Quaternion.cpp" />
@@ -188,12 +191,15 @@
     <ClInclude Include="DirectionalLight.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="InputSystem.h" />
     <ClInclude Include="IRenderer.h" />
+    <ClInclude Include="KeyboardState.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshComponent.h" />
+    <ClInclude Include="MouseState.h" />
     <ClInclude Include="MoveComponent.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Quaternion.h" />

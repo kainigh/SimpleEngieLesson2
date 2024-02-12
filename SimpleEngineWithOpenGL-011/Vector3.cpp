@@ -2,7 +2,6 @@
 #include "Matrix4.h"
 #include "Quaternion.h"
 
-
 const Vector3 Vector3::zero(0.0f, 0.0f, 0.f);
 const Vector3 Vector3::unitX(1.0f, 0.0f, 0.0f);
 const Vector3 Vector3::unitY(0.0f, 1.0f, 0.0f);

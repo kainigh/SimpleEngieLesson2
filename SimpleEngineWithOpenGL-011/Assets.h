@@ -28,8 +28,8 @@ public:
     // geometry) shader's source code. If tcShaderFile, teShaderFile, gShaderFile are not nullptr, it also loads
     // tessellation and geometry shaders
     static Shader loadShader(const std::string& vShaderFile, const std::string& fShaderFile,
-        const std::string& tcShaderFile, const std::string& teShaderFile,
-        const std::string& gShaderFile, const std::string& name);
+                             const std::string& tcShaderFile, const std::string& teShaderFile,
+                             const std::string& gShaderFile, const std::string& name);
 
     // Retrieves a stored shader
     static Shader& getShader(const std::string& name);
@@ -51,9 +51,10 @@ private:
 
     // Loads and generates a shader from file
     static Shader loadShaderFromFile(const std::string& vShaderFile, const std::string& fShaderFile,
-        const std::string& tcShaderFile = "", const std::string& teShaderFile = "",
-        const std::string& gShaderFile = "");
+                                     const std::string& tcShaderFile = "", const std::string& teShaderFile = "",
+                                     const std::string& gShaderFile = "");
 
     static Mesh loadMeshFromFile(const string& filename);
 
 };
+

@@ -35,7 +35,6 @@ public:
 	void setLightUniforms(Shader& shader);
 	void setAmbientLight(const Vector3& ambientP);
 
-
 private:
 	void drawMeshes();
 	void drawSprites();
@@ -53,3 +52,4 @@ private:
 	Vector3 ambientLight;
 	DirectionalLight dirLight;
 };
+

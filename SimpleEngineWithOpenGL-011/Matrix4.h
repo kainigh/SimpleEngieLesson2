@@ -3,7 +3,6 @@
 #include "Vector3.h"
 #include "Quaternion.h"
 
-
 class Matrix4
 {
 public:
@@ -252,7 +251,6 @@ public:
 		return Matrix4(temp);
 	}
 
-
 	static Matrix4 createFromQuaternion(const Quaternion& q)
 	{
 		float mat[4][4];
@@ -327,5 +325,4 @@ public:
 	}
 
 	static const Matrix4 identity;
-
 };

@@ -1,10 +1,9 @@
 #include "Texture.h"
 #include "Log.h"
-#include "IRenderer.h"
-
 #include <SDL_image.h>
+#include <sstream>
 
-Texture::Texture(): filename(""), width(0), height(0), SDLTexture(nullptr)
+Texture::Texture(): textureID(0), filename(""), width(0), height(0), SDLTexture(nullptr)
 {
 }
 
@@ -17,6 +16,10 @@ void Texture::unload()
 	if (SDLTexture)
 	{
 		SDL_DestroyTexture(SDLTexture);
+	}
+	else
+	{
+		glDeleteTextures(1, &textureID);
 	}
 }
 
@@ -39,14 +42,13 @@ bool Texture::loadSDL(RendererSDL& renderer, const string& filenameP)
 	SDL_FreeSurface(surf);
 	if (!SDLTexture)
 	{
-		Log::error(LogCategory::Render, "Failed to convert surface to texture for " + filename);
+		Log::error(LogCategory::Render, "Failed to convert surface to texture for "+ filename);
 		return false;
 	}
 	Log::info("Loaded texture " + filename);
 	return true;
 }
 */
-
 
 bool Texture::loadOGL(RendererOGL& renderer, const string& filenameP)
 {

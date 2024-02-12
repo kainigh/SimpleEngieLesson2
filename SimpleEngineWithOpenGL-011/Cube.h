@@ -5,3 +5,4 @@ class Cube : public Actor
 public:
 	Cube();
 };
+

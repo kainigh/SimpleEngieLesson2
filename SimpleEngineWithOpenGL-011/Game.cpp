@@ -7,13 +7,13 @@
 #include "Sphere.h"
 #include "Plane.h"
 
-#include <iostream>
-
 bool Game::initialize()
 {
 	bool isWindowInit = window.initialize();
 	bool isRendererInit = renderer.initialize(window);
-	return isWindowInit && isRendererInit; // Return bool && bool && bool ...to detect error
+	bool isInputInit = inputSystem.initialize();
+
+	return isWindowInit && isRendererInit && isInputInit; // Return bool && bool && bool ...to detect error
 }
 
 void Game::load()
@@ -28,11 +28,11 @@ void Game::load()
 	Assets::loadTexture(renderer, "Res\\Textures\\Plane.png", "Plane");
 	Assets::loadTexture(renderer, "Res\\Textures\\Radar.png", "Radar");
 	Assets::loadTexture(renderer, "Res\\Textures\\Sphere.png", "Sphere");
-
+	
 	Assets::loadMesh("Res\\Meshes\\Cube.gpmesh", "Mesh_Cube");
 	Assets::loadMesh("Res\\Meshes\\Plane.gpmesh", "Mesh_Plane");
 	Assets::loadMesh("Res\\Meshes\\Sphere.gpmesh", "Mesh_Sphere");
-
+	
 	camera = new Camera();
 
 	Cube* a = new Cube();
@@ -41,10 +41,10 @@ void Game::load()
 	Quaternion q(Vector3::unitY, -Maths::piOver2);
 	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::pi + Maths::pi / 4.0f));
 	a->setRotation(q);
-
+	
 	Sphere* b = new Sphere();
 	b->setPosition(Vector3(200.0f, -75.0f, 0.0f));
-	b->setScale(30.0f);
+	b->setScale(3.0f);
 
 	// Floor and walls
 
@@ -102,13 +102,12 @@ void Game::load()
 	ui->setPosition(Vector3(375.0f, -275.0f, 0.0f));
 	ui->setScale(0.75f);
 	sc = new SpriteComponent(ui, Assets::getTexture("Radar"));
-
-	//std::cout << "ACTORS SIZE IS: " << actors.size() << std::endl;
-
 }
 
 void Game::processInput()
 {
+	inputSystem.preUpdate();
+
 	// SDL Event
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
@@ -120,10 +119,13 @@ void Game::processInput()
 			break;
 		}
 	}
-	// Keyboard state
-	const Uint8* keyboardState = SDL_GetKeyboardState(nullptr);
+
+	inputSystem.update();
+	const InputState& input = inputSystem.getInputState();
+
+	
 	// Escape: quit game
-	if (keyboardState[SDL_SCANCODE_ESCAPE])
+	if (input.keyboard.getKeyState(SDL_SCANCODE_ESCAPE) == ButtonState::Released)
 	{
 		isRunning = false;
 	}
@@ -131,7 +133,7 @@ void Game::processInput()
 	isUpdatingActors = true;
 	for (auto actor : actors)
 	{
-		actor->processInput(keyboardState);
+		actor->processInput(input);
 	}
 	isUpdatingActors = false;
 }
@@ -149,6 +151,7 @@ void Game::update(float dt)
 	// Move pending actors to actors
 	for (auto pendingActor: pendingActors)
 	{
+		pendingActor->computeWorldTransform();
 		actors.emplace_back(pendingActor);
 	}
 	pendingActors.clear();
@@ -174,8 +177,6 @@ void Game::render()
 	renderer.draw();
 	renderer.endDraw();
 }
-
-
 
 void Game::loop()
 {
@@ -206,6 +207,7 @@ void Game::unload()
 
 void Game::close()
 {
+	inputSystem.close();
 	renderer.close();
 	window.close();
 	SDL_Quit();

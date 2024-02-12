@@ -4,7 +4,7 @@
 #include "Component.h"
 #include "Maths.h"
 
-Actor::Actor():
+Actor::Actor() :
 	state(Actor::ActorState::Active),
 	position(Vector3::zero),
 	scale(1.0f),
@@ -14,7 +14,6 @@ Actor::Actor():
 {
 	game.addActor(this);
 }
-
 
 Actor::~Actor()
 {
@@ -55,43 +54,6 @@ Vector3 Actor::getForward() const
 	return Vector3::transform(Vector3::unitX, rotation);
 }
 
-void Actor::processInput(const Uint8* keyState)
-{
-	if (state == Actor::ActorState::Active)
-	{
-		for (auto component : components)
-		{
-			component->processInput(keyState);
-		}
-		actorInput(keyState);
-	}
-}
-
-void Actor::actorInput(const Uint8* keyState)
-{
-}
-
-void Actor::update(float dt)
-{
-	if (state == Actor::ActorState::Active)
-	{
-		updateComponents(dt);
-		updateActor(dt);
-	}
-}
-
-void Actor::updateComponents(float dt)
-{
-	for (auto component : components)
-	{
-		component->update(dt);
-	}
-}
-
-void Actor::updateActor(float dt)
-{
-}
-
 void Actor::computeWorldTransform()
 {
 	if (mustRecomputeWorldTransform)
@@ -106,6 +68,45 @@ void Actor::computeWorldTransform()
 			component->onUpdateWorldTransform();
 		}
 	}
+}
+
+void Actor::processInput(const InputState& inputState)
+{
+	if (state == Actor::ActorState::Active)
+	{
+		for (auto component : components)
+		{
+			component->processInput(inputState);
+		}
+		actorInput(inputState);
+	}
+}
+
+void Actor::actorInput(const InputState& inputState)
+{
+}
+
+void Actor::update(float dt)
+{
+	if (state == Actor::ActorState::Active)
+	{
+		computeWorldTransform();
+		updateComponents(dt);
+		updateActor(dt);
+		computeWorldTransform();
+	}
+}
+
+void Actor::updateComponents(float dt)
+{
+	for (auto component : components)
+	{
+		component->update(dt);
+	}
+}
+
+void Actor::updateActor(float dt)
+{
 }
 
 void Actor::addComponent(Component* component)
