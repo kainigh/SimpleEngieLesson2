@@ -77,6 +77,7 @@
     <ClCompile Include="MouseState.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="KeyboardState.cpp" />
+    <ClCompile Include="ControllerState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -158,6 +159,7 @@
     <ClInclude Include="MouseState.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="KeyboardState.h" />
+    <ClInclude Include="ControllerState.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Components">

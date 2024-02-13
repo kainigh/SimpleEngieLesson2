@@ -112,17 +112,16 @@ void Game::processInput()
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
-		switch (event.type)
-		{
-		case SDL_QUIT:
-			isRunning = false;
-			break;
-		}
+		isRunning = inputSystem.processEvent(event);
 	}
 
 	inputSystem.update();
 	const InputState& input = inputSystem.getInputState();
 
+	if (input.mouse.getButtonState(1) == ButtonState::Pressed)
+	{
+		Vector2 mousePosition = input.mouse.getPosition();
+	}
 	
 	// Escape: quit game
 	if (input.keyboard.getKeyState(SDL_SCANCODE_ESCAPE) == ButtonState::Released)
