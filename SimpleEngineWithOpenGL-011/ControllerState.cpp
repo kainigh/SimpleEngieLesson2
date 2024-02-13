@@ -1,6 +1,17 @@
 #include "ControllerState.h"
 #include "InputSystem.h"
 
+
+ControllerState::ControllerState() :
+	leftStick(Vector2()),
+	rightStick(Vector2()),
+	leftTrigger(0.0f),
+	rightTrigger(0.0f),
+	isConnected(false)
+{
+
+}
+
 bool ControllerState::getButtonValue(SDL_GameControllerButton button) const
 {
 	return currentButtons[button] == 1;

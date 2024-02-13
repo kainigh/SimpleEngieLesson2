@@ -8,8 +8,10 @@ public:
 	MoveComponent(const MoveComponent&) = delete;
 	MoveComponent& operator=(const MoveComponent&) = delete;
 
+	float getStrafeSpeed() const { return strafeSpeed; }
 	float getForwardSpeed() const { return forwardSpeed; }
 	float getAngularSpeed() const { return angularSpeed; }
+	void setStrafeSpeed(float strafeSpeedP);
 
 	void setForwardSpeed(float forwardSpeedP);
 	void setAngularSpeed(float angularSpeedP);
@@ -20,6 +22,7 @@ public:
 private:
 	float forwardSpeed;
 	float angularSpeed;
+	float strafeSpeed;
 
 };
 

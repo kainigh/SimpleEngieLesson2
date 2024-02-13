@@ -26,6 +26,11 @@ Actor::~Actor()
 	}
 }
 
+Vector3 Actor::getRight() const
+{
+	return Vector3::transform(Vector3::unitY, rotation);
+}
+
 void Actor::setPosition(Vector3 positionP)
 {
 	position = positionP;

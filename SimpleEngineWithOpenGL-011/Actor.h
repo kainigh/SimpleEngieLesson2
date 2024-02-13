@@ -34,6 +34,7 @@ public:
 	void setRotation(Quaternion rotationP);
 	void setState(ActorState stateP);
 
+	Vector3 getRight() const;
 	Vector3 getForward() const;
 	void computeWorldTransform();
 
