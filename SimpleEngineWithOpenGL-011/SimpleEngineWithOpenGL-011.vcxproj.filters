@@ -89,6 +89,11 @@
       <Filter>Components</Filter>
     </ClCompile>
     <ClCompile Include="FollowActor.cpp" />
+    <ClCompile Include="OrbitCameraComponent.cpp" />
+    <ClCompile Include="OrbitActor.cpp" />
+    <ClCompile Include="Spline.cpp" />
+    <ClCompile Include="SplineCameraComponent.cpp" />
+    <ClCompile Include="SplineActor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -182,6 +187,11 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="FollowActor.h" />
+    <ClInclude Include="OrbitCameraComponent.h" />
+    <ClInclude Include="OrbitActor.h" />
+    <ClInclude Include="Spline.h" />
+    <ClInclude Include="SplineCameraComponent.h" />
+    <ClInclude Include="SplineActor.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Components">

@@ -26,7 +26,7 @@ public:
 	Game& operator=(Game&&) = delete;
 
 private:
-	Game() : isRunning(true), isUpdatingActors(false), fps(nullptr), crosshair(nullptr), follow(nullptr) {}
+	Game() : isRunning(true), isUpdatingActors(false), fps(nullptr), crosshair(nullptr), follow(nullptr), orbit(nullptr), path(nullptr) {}
 
 public:
 	bool initialize();
@@ -58,6 +58,8 @@ private:
 	class FPSActor* fps;
 	class SpriteComponent* crosshair;
 	class FollowActor* follow;
+	class OrbitActor* orbit;
+	class SplineActor* path;
 
 };
 

@@ -170,6 +170,8 @@
     <ClCompile Include="MeshComponent.cpp" />
     <ClCompile Include="MouseState.cpp" />
     <ClCompile Include="MoveComponent.cpp" />
+    <ClCompile Include="OrbitActor.cpp" />
+    <ClCompile Include="OrbitCameraComponent.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Random.cpp" />
@@ -178,6 +180,9 @@
     <ClCompile Include="RendererOGL.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Sphere.cpp" />
+    <ClCompile Include="Spline.cpp" />
+    <ClCompile Include="SplineActor.cpp" />
+    <ClCompile Include="SplineCameraComponent.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Timer.cpp" />
@@ -213,6 +218,8 @@
     <ClInclude Include="MeshComponent.h" />
     <ClInclude Include="MouseState.h" />
     <ClInclude Include="MoveComponent.h" />
+    <ClInclude Include="OrbitActor.h" />
+    <ClInclude Include="OrbitCameraComponent.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="Random.h" />
@@ -221,6 +228,9 @@
     <ClInclude Include="RendererOGL.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Sphere.h" />
+    <ClInclude Include="Spline.h" />
+    <ClInclude Include="SplineActor.h" />
+    <ClInclude Include="SplineCameraComponent.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Timer.h" />
