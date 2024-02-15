@@ -1,8 +1,8 @@
 #pragma once
 #include "Actor.h"
-class Cube : public Actor
+class CubeActor : public Actor
 {
 public:
-	Cube();
+	CubeActor();
 };
 

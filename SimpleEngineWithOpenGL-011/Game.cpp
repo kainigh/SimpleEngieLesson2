@@ -3,13 +3,14 @@
 #include "Timer.h"
 #include "Assets.h"
 #include "MeshComponent.h"
-#include "Cube.h"
-#include "Sphere.h"
-#include "Plane.h"
+#include "CubeActor.h"
+#include "SphereActor.h"
+#include "PlaneActor.h"
 #include "FPSActor.h"
 #include "FollowActor.h"
 #include "OrbitActor.h"
 #include "SplineActor.h"
+#include "TargetActor.h"
 #include <algorithm>
 
 bool Game::initialize()
@@ -38,26 +39,29 @@ void Game::load()
 	Assets::loadTexture(renderer, "Res\\Textures\\Crosshair.png", "Crosshair");
 	Assets::loadTexture(renderer, "Res\\Textures\\RacingCar.png", "RacingCar");
 	Assets::loadTexture(renderer, "Res\\Textures\\Rifle.png", "Rifle");
+	Assets::loadTexture(renderer, "Res\\Textures\\Target.png", "Target");
 
 	Assets::loadMesh("Res\\Meshes\\Cube.gpmesh", "Mesh_Cube");
 	Assets::loadMesh("Res\\Meshes\\Plane.gpmesh", "Mesh_Plane");
 	Assets::loadMesh("Res\\Meshes\\Sphere.gpmesh", "Mesh_Sphere");
 	Assets::loadMesh("Res\\Meshes\\Rifle.gpmesh", "Mesh_Rifle");
 	Assets::loadMesh("Res\\Meshes\\RacingCar.gpmesh", "Mesh_RacingCar");
+	Assets::loadMesh("Res\\Meshes\\Target.gpmesh", "Mesh_Target");
+
 
 	fps = new FPSActor();
 	follow = new FollowActor();
 	orbit = new OrbitActor();
 	path = new SplineActor();
 
-	Cube* a = new Cube();
+	CubeActor* a = new CubeActor();
 	a->setPosition(Vector3(200.0f, 105.0f, 0.0f));
 	a->setScale(100.0f);
 	Quaternion q(Vector3::unitY, -Maths::piOver2);
 	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::pi + Maths::pi / 4.0f));
 	a->setRotation(q);
 
-	Sphere* b = new Sphere();
+	SphereActor* b = new SphereActor();
 	b->setPosition(Vector3(200.0f, -75.0f, 0.0f));
 	b->setScale(3.0f);
 
@@ -70,7 +74,7 @@ void Game::load()
 	{
 		for (int j = 0; j < 10; j++)
 		{
-			Plane* p = new Plane();
+			PlaneActor* p = new PlaneActor();
 			p->setPosition(Vector3(start + i * size, start + j * size, -100.0f));
 		}
 	}
@@ -79,11 +83,11 @@ void Game::load()
 	q = Quaternion(Vector3::unitX, Maths::piOver2);
 	for (int i = 0; i < 10; i++)
 	{
-		Plane* p = new Plane();
+		PlaneActor* p = new PlaneActor();
 		p->setPosition(Vector3(start + i * size, start - size, 0.0f));
 		p->setRotation(q);
 
-		p = new Plane();
+		p = new PlaneActor();
 		p->setPosition(Vector3(start + i * size, -start + size, 0.0f));
 		p->setRotation(q);
 	}
@@ -92,11 +96,11 @@ void Game::load()
 	// Forward/back walls
 	for (int i = 0; i < 10; i++)
 	{
-		Plane* p = new Plane();
+		PlaneActor* p = new PlaneActor();
 		p->setPosition(Vector3(start - size, start + i * size, 0.0f));
 		p->setRotation(q);
 
-		p = new Plane();
+		p = new PlaneActor();
 		p->setPosition(Vector3(-start + size, start + i * size, 0.0f));
 		p->setRotation(q);
 	}
@@ -109,7 +113,7 @@ void Game::load()
 	dir.specColor = Vector3(0.8f, 0.8f, 0.8f);
 
 	// Create spheres with audio components playing different sounds
-	Sphere* soundSphere = new Sphere();
+	SphereActor* soundSphere = new SphereActor();
 	soundSphere->setPosition(Vector3(500.0f, -75.0f, 0.0f));
 	soundSphere->setScale(1.0f);
 	//AudioComponent* ac = new AudioComponent(soundSphere);
@@ -119,6 +123,16 @@ void Game::load()
 	Actor* crosshairActor = new Actor();
 	crosshairActor->setScale(2.0f);
 	crosshair = new SpriteComponent(crosshairActor, Assets::getTexture("Crosshair"));
+
+	TargetActor* t = new TargetActor();
+	t->setPosition(Vector3(1450.0f, 0.0f, 100.0f));
+	t = new TargetActor();
+	t->setPosition(Vector3(1450.0f, 0.0f, 400.0f));
+	t = new TargetActor();
+	t->setPosition(Vector3(1450.0f, -500.0f, 200.0f));
+	t = new TargetActor();
+	t->setPosition(Vector3(1450.0f, 500.0f, 200.0f));
+
 
 	changeCamera(2);
 }
@@ -315,4 +329,15 @@ void Game::removeActor(Actor* actor)
 		std::iter_swap(iter, end(actors) - 1);
 		actors.pop_back();
 	}
+}
+
+void Game::addPlane(PlaneActor* plane)
+{
+	planes.emplace_back(plane);
+}
+
+void Game::removePlane(PlaneActor* plane)
+{
+	auto iter = std::find(begin(planes), end(planes), plane);
+	planes.erase(iter);
 }

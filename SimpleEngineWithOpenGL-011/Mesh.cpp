@@ -1,9 +1,10 @@
 #include "Mesh.h"
 #include "VertexArray.h"
 
-Mesh::Mesh() : vertexArray(nullptr), shaderName(""), radius(0.0f), specularPower(100.0f)
+Mesh::Mesh() : vertexArray(nullptr), shaderName(""), radius(0.0f), specularPower(100.0f), box(Vector3::infinity, Vector3::negInfinity)
 {
 }
+
 
 Mesh::~Mesh()
 {
@@ -50,4 +51,9 @@ void Mesh::setRadius(float radiusP)
 void Mesh::setSpecularPower(float specularPowerP)
 {
 	specularPower = specularPowerP;
+}
+
+void Mesh::setBox(const AABB& boxP)
+{
+	box = boxP;
 }

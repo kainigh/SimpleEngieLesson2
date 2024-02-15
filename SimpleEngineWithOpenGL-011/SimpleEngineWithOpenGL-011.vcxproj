@@ -145,15 +145,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AABB.cpp" />
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="AnimSpriteComponent.cpp" />
     <ClCompile Include="BackgroundSpriteComponent.cpp" />
+    <ClCompile Include="BallActor.cpp" />
+    <ClCompile Include="BallMoveComponent.cpp" />
+    <ClCompile Include="BoxComponent.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="CircleCollisionComponent.cpp" />
+    <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ControllerState.cpp" />
-    <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="CubeActor.cpp" />
     <ClCompile Include="FollowActor.cpp" />
     <ClCompile Include="FollowCameraComponent.cpp" />
     <ClCompile Include="FPSActor.cpp" />
@@ -162,6 +167,7 @@
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="KeyboardState.cpp" />
+    <ClCompile Include="LineSegment.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Maths.cpp" />
@@ -172,7 +178,9 @@
     <ClCompile Include="MoveComponent.cpp" />
     <ClCompile Include="OrbitActor.cpp" />
     <ClCompile Include="OrbitCameraComponent.cpp" />
+    <ClCompile Include="PhysicsSystem.cpp" />
     <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="PlaneActor.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Rectangle.cpp" />
@@ -180,10 +188,12 @@
     <ClCompile Include="RendererOGL.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Sphere.cpp" />
+    <ClCompile Include="SphereActor.cpp" />
     <ClCompile Include="Spline.cpp" />
     <ClCompile Include="SplineActor.cpp" />
     <ClCompile Include="SplineCameraComponent.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="TargetActor.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Vector2.cpp" />
@@ -192,15 +202,20 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AABB.h" />
     <ClInclude Include="Actor.h" />
     <ClInclude Include="AnimSpriteComponent.h" />
     <ClInclude Include="BackgroundSpriteComponent.h" />
+    <ClInclude Include="BallActor.h" />
+    <ClInclude Include="BallMoveComponent.h" />
+    <ClInclude Include="BoxComponent.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="CircleCollisionComponent.h" />
+    <ClInclude Include="Collisions.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ControllerState.h" />
-    <ClInclude Include="Cube.h" />
+    <ClInclude Include="CubeActor.h" />
     <ClInclude Include="DirectionalLight.h" />
     <ClInclude Include="FollowActor.h" />
     <ClInclude Include="FollowCameraComponent.h" />
@@ -211,6 +226,7 @@
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="KeyboardState.h" />
+    <ClInclude Include="LineSegment.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Matrix4.h" />
@@ -220,7 +236,9 @@
     <ClInclude Include="MoveComponent.h" />
     <ClInclude Include="OrbitActor.h" />
     <ClInclude Include="OrbitCameraComponent.h" />
+    <ClInclude Include="PhysicsSystem.h" />
     <ClInclude Include="Plane.h" />
+    <ClInclude Include="PlaneActor.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Rectangle.h" />
@@ -228,10 +246,12 @@
     <ClInclude Include="RendererOGL.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Sphere.h" />
+    <ClInclude Include="SphereActor.h" />
     <ClInclude Include="Spline.h" />
     <ClInclude Include="SplineActor.h" />
     <ClInclude Include="SplineCameraComponent.h" />
     <ClInclude Include="SpriteComponent.h" />
+    <ClInclude Include="TargetActor.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Vector2.h" />

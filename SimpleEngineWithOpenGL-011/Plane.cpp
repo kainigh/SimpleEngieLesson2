@@ -1,10 +1,20 @@
 #include "Plane.h"
-#include "MeshComponent.h"
-#include "Assets.h"
 
-Plane::Plane() : Actor()
+Plane::Plane(const Vector3& normalP, float dP) : normal(normalP), d(dP)
 {
-	setScale(10.0f);
-	MeshComponent* mc = new MeshComponent(this);
-	mc->setMesh(Assets::getMesh("Mesh_Plane"));
+}
+
+Plane::Plane(const Vector3& a, const Vector3& b, const Vector3& c)
+{
+	Vector3 ab = b - a;
+	Vector3 ac = c - a;
+	normal = Vector3::cross(ab, ac);
+	normal.normalize();
+	// d = -P dot n
+	d = -Vector3::dot(a, normal);
+}
+
+float Plane::signedDist(const Vector3& point) const
+{
+	return Vector3::dot(point, normal) - d;
 }

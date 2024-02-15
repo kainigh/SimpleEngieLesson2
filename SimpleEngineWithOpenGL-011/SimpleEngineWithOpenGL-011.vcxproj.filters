@@ -71,9 +71,9 @@
       <Filter>Components</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Cube.cpp" />
-    <ClCompile Include="Sphere.cpp" />
-    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="CubeActor.cpp" />
+    <ClCompile Include="SphereActor.cpp" />
+    <ClCompile Include="PlaneActor.cpp" />
     <ClCompile Include="MouseState.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="KeyboardState.cpp" />
@@ -94,6 +94,16 @@
     <ClCompile Include="Spline.cpp" />
     <ClCompile Include="SplineCameraComponent.cpp" />
     <ClCompile Include="SplineActor.cpp" />
+    <ClCompile Include="LineSegment.cpp" />
+    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="Sphere.cpp" />
+    <ClCompile Include="AABB.cpp" />
+    <ClCompile Include="Collisions.cpp" />
+    <ClCompile Include="BoxComponent.cpp" />
+    <ClCompile Include="PhysicsSystem.cpp" />
+    <ClCompile Include="BallActor.cpp" />
+    <ClCompile Include="BallMoveComponent.cpp" />
+    <ClCompile Include="TargetActor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
@@ -168,9 +178,9 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Cube.h" />
-    <ClInclude Include="Sphere.h" />
-    <ClInclude Include="Plane.h" />
+    <ClInclude Include="CubeActor.h" />
+    <ClInclude Include="SphereActor.h" />
+    <ClInclude Include="PlaneActor.h" />
     <ClInclude Include="DirectionalLight.h" />
     <ClInclude Include="MouseState.h" />
     <ClInclude Include="InputSystem.h" />
@@ -192,6 +202,16 @@
     <ClInclude Include="Spline.h" />
     <ClInclude Include="SplineCameraComponent.h" />
     <ClInclude Include="SplineActor.h" />
+    <ClInclude Include="LineSegment.h" />
+    <ClInclude Include="Plane.h" />
+    <ClInclude Include="Sphere.h" />
+    <ClInclude Include="AABB.h" />
+    <ClInclude Include="Collisions.h" />
+    <ClInclude Include="BoxComponent.h" />
+    <ClInclude Include="PhysicsSystem.h" />
+    <ClInclude Include="BallActor.h" />
+    <ClInclude Include="BallMoveComponent.h" />
+    <ClInclude Include="TargetActor.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Components">
